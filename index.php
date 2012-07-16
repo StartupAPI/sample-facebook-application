@@ -7,19 +7,19 @@ $user = User::get();
 
 $facebook_module = AuthenticationModule::get('facebook');
 
+// We'll be fetching friends data into this array
 $friends = array();
 
 if (!is_null($user)) {
 	// You can work with users, but it's recommended to tie your data to accounts, not users
-	$current_account = Account::getCurrentAccount($user);
+	#$current_account = Account::getCurrentAccount($user);
 
-	$fb = $facebook_module->sdk;
-
+	// We'll be looping through multiple pages of results
 	$page = 0;
 	$page_size = 5000; // seems to be API's default anyway
 
 	do {
-		$data = $fb->api('/me/friends', 'GET', array(
+		$data = $facebook_module->api('/me/friends', 'GET', array(
 			'limit' => $page_size,
 			'offset' => $page * $page_size
 		));
@@ -58,7 +58,7 @@ if (!is_null($user)) {
 if (!is_null($user)) {
 ?>
 <h1>Friends of <?php echo $user->getName() ?>!</h1>
-<div class="fb-like" data-href="http://startupapi.com/samples/facebook-app/" data-send="true" data-show-faces="false"></div>
+<div class="fb-like" data-href="https://github.com/StartupAPI/sample-facebook-application" data-send="true" data-show-faces="false"></div>
 <div>
 <?php
 	foreach ($friends as $friend) {
