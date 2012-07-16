@@ -29,7 +29,7 @@ if (!is_null($user)) {
 		}
 
 		$page++;
-	} while (array_key_exists('next', $data['paging']));
+	} while (array_key_exists('paging', $data) && array_key_exists('next', $data['paging']));
 }
 ?><html>
 <head>
