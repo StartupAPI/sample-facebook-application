@@ -19,7 +19,7 @@ if (!is_null($user)) {
 	$page_size = 5000; // seems to be API's default anyway
 
 	do {
-		$data = $facebook_module->api('/me/friends', 'GET', array(
+		$data = $facebook_module->api('/me/friends?fields=id,name,picture', 'GET', array(
 			'limit' => $page_size,
 			'offset' => $page * $page_size
 		));
@@ -39,6 +39,7 @@ if (!is_null($user)) {
 .fb-userpic {
 	width: 50px;
 	height: 50px;
+	background: #eceff6;
 }
 </style>
 </head>
@@ -63,7 +64,7 @@ if (!is_null($user)) {
 <?php
 	foreach ($friends as $friend) {
 		?>
-		<a href="http://www.facebook.com/<?php echo $friend['id'] ?>" target="_blank"><img src="http://graph.facebook.com/<?php echo $friend['id'] ?>/picture" title="<?php echo $friend['name'] ?>" class="fb-userpic"/></a>
+		<a href="http://www.facebook.com/<?php echo $friend['id'] ?>" target="_blank"><img src="<?php echo $friend['picture'] ?>" title="<?php echo $friend['name'] ?>" class="fb-userpic"/></a>
 		<?php
 	}
 ?>
