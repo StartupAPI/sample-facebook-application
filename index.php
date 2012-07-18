@@ -63,6 +63,10 @@ if (!is_null($user)) {
 <div>
 <?php
 	foreach ($friends as $friend) {
+		if (is_array($friend['picture'])) {
+			$friend['picture'] = $friend['picture']['data']['url'];
+		}
+
 		?>
 		<a href="http://www.facebook.com/<?php echo $friend['id'] ?>" target="_blank"><img src="<?php echo $friend['picture'] ?>" title="<?php echo $friend['name'] ?>" class="fb-userpic"/></a>
 		<?php
