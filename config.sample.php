@@ -11,14 +11,14 @@
 /**
  * Source of randomness for security
  */
-$randomness = '...some.random.characters.go.here...';
+$randomness = '...type.some.random.characters.here...';
 
 /**
  * MySQL configuration variables
  */
-$mysql_db = 'my_fb_app';
-$mysql_user = 'my_fb_app';
-$mysql_password = '...password...';
+$your_mysql_db = 'my_fb_app';
+$your_mysql_user = 'my_fb_app';
+$your_mysql_password = '...password...';
 
 /**
  * Register your app here: http://www.facebook.com/developers/createapp.php

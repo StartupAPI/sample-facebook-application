@@ -12,9 +12,9 @@ UserConfig::$SESSION_SECRET = $randomness;
 /**
  * Database connectivity 
  */
-UserConfig::$mysql_db = $mysql_db;
-UserConfig::$mysql_user = $mysql_user;
-UserConfig::$mysql_password = $mysql_password;
+UserConfig::$mysql_db = $your_mysql_db;
+UserConfig::$mysql_user = $your_mysql_user;
+UserConfig::$mysql_password = $your_mysql_password;
 #UserConfig::$mysql_host = 'localhost';
 #UserConfig::$mysql_port = 3306;
 
