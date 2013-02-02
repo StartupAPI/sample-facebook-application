@@ -17,13 +17,12 @@ UserConfig::$mysql_user = $your_mysql_user;
 UserConfig::$mysql_password = $your_mysql_password;
 #UserConfig::$mysql_host = 'localhost';
 #UserConfig::$mysql_port = 3306;
+#UserConfig::$mysql_socket = '/tmp/mysql.sock';
 
 /**
  * User IDs of admins for this instance (to be able to access dashboard at /users/admin/)
  */
-UserConfig::$admins = array(
-	1, // usually first user has ID of 1
-);
+UserConfig::$admins[] = 1; // usually first user has ID of 1
 
 /*
  * Uncomment next line to enable debug messages in error_log
@@ -76,7 +75,7 @@ new FacebookAuthenticationModule(
  * And then uncomment two lines below and copy API Key and App Secret
  */
 #UserConfig::loadModule('twitter');
-#UserConfig::$modules[] = new TwitterAuthenticationModule('...api.key.goes.here...', '...api.secret.goes.here...');
+#new TwitterAuthenticationModule('...api.key.goes.here...', '...api.secret.goes.here...');
 
 /**
  * Status.Net Authentication configuration
