@@ -10,19 +10,24 @@ require_once(dirname(__FILE__).'/config.php');
 UserConfig::$SESSION_SECRET = $randomness;
 
 /**
- * Database connectivity 
+ * Database connectivity
  */
 UserConfig::$mysql_db = $your_mysql_db;
 UserConfig::$mysql_user = $your_mysql_user;
 UserConfig::$mysql_password = $your_mysql_password;
 #UserConfig::$mysql_host = 'localhost';
 #UserConfig::$mysql_port = 3306;
-#UserConfig::$mysql_socket = '/tmp/mysql.sock';
+UserConfig::$mysql_socket = '/tmp/mysql.sock';
 
 /**
  * User IDs of admins for this instance (to be able to access dashboard at /users/admin/)
  */
 UserConfig::$admins[] = 1; // usually first user has ID of 1
+
+/*
+ * Name of your application to be used in UI and emails to users
+ */
+UserConfig::$appName = 'Sample Facebook Application';
 
 /*
  * Uncomment next line to enable debug messages in error_log
@@ -42,7 +47,7 @@ new FacebookAuthenticationModule(
 	array(), # set to array of extended permissions if needed, e.g. array('email')
 	null,
 	array(
-		'facepile' => true 
+		'facepile' => true
 	)
 );
 
