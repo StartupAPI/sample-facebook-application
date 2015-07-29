@@ -15,7 +15,7 @@ UserConfig::$SESSION_SECRET = $randomness;
 UserConfig::$mysql_db = $your_mysql_db;
 UserConfig::$mysql_user = $your_mysql_user;
 UserConfig::$mysql_password = $your_mysql_password;
-#UserConfig::$mysql_host = 'localhost';
+UserConfig::$mysql_host = isset($your_mysql_host) ? $your_mysql_host : 'localhost';
 #UserConfig::$mysql_port = 3306;
 #UserConfig::$mysql_socket = '/tmp/mysql.sock';
 
