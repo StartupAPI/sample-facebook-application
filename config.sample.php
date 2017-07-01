@@ -28,4 +28,17 @@ $your_mysql_password = '...password...';
 $fb_key = '...api.key.goes.here...';
 $fb_secret = '...api.secret.goes.here...';
 
-# see more configuration options in users_config.php
+/**
+ * SMTP host
+ */
+$amazonSMTPHost = 'email-smtp.us-east-1.amazonaws.com';
+
+/**
+ * SMTP UserName
+ */
+$amazonSMTPUserName = '';
+
+/**
+ * SMTP Password
+ */
+$amazonSMTPPassword = '';
