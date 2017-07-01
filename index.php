@@ -10,30 +10,18 @@ $template_info = StartupAPI::getTemplateInfo();
 
 $template_info['name'] = $user->getName();
 
-// We'll be fetching friends data into this array
-$friends = array();
+$response = $facebook_module->api("/me?fields=cover,picture");
+if ($response) {
+	$me = $response->getDecodedBody();
 
-$page = 0;
-$page_size = 5000; // seems to be API's default anyway
-
-do {
-	$data = $facebook_module->api('/me/friends?fields=id,name,picture', 'GET', array(
-		'limit' => $page_size,
-		'offset' => $page * $page_size
-			));
-
-	foreach ($data['data'] as $friend) {
-		if (is_array($friend['picture'])) {
-			$friend['picture'] = $friend['picture']['data']['url'];
-		}
-
-		$friends[] = $friend;
+	if ($me['cover']['source']) {
+		$template_info['cover'] = $me['cover']['source'];
 	}
 
-	$page++;
-} while (array_key_exists('paging', $data) && array_key_exists('next', $data['paging']));
-
-$template_info['friends'] = $friends;
+	if ($me['picture']['data']['url']) {
+		$template_info['picture'] = $me['picture']['data']['url'];
+	}
+}
 
 StartupAPI::$template->getLoader()->addPath(__DIR__ . '/templates', 'app');
 StartupAPI::$template->display('@app/index.html.twig', $template_info);

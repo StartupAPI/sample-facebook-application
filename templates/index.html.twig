@@ -2,13 +2,18 @@
 {% block content %}
 <div class="container">
 	<div class="row">
-		<h1>Welcome, {{name}}!</h1>
+		<h1>Welcome,
+			{% if picture %}
+				<img src="{{picture}}" style="height: 2em">
+			{% endif %}
+
+		{{name}}!</h1>
 		<div class="fb-like" data-href="https://github.com/StartupAPI/sample-facebook-application" data-send="true" data-show-faces="false"></div>
+		{% if cover %}
 		<div>
-			{% for friend in friends %}
-				<a href="http://www.facebook.com/{{friend.id}}" target="_blank"><img src="{{friend.picture}}" title="{{friend.name}} class="fb-userpic"/></a>
-			{% endfor %}
+			<img src="{{cover}}" style="width: 100%">
 		</div>
+		{% endif %}
 	</div>
 </div>
 {% endblock %}
