@@ -22,7 +22,7 @@ UserConfig::$mysql_socket = isset($your_mysql_socket) ? $your_mysql_socket : nul
 /**
  * User IDs of admins for this instance (to be able to access dashboard at /users/admin/)
  */
-UserConfig::$admins[] = 1; // usually first user has ID of 1
+UserConfig::$admins = $admins; // usually first user has ID of 1
 
 /*
  * Name of your application to be used in UI and emails to users
